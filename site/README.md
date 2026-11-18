@@ -11,10 +11,6 @@ npm run preview   # serve dist/
 npm run check-figures   # every page in headless Chromium: figures render, no console errors, no clipped table
 npm run check-replay    # tutorial replays start from 0 s on load, navigation, slow loads and stalls
 npm run check-clips     # example clips play, keep an early seek, change speed, and play one at a time
-npm run build:pages     # the GitHub Pages build under /steel/, in dist-pages/ so it never replaces dist/
-npm run check-figures:pages
-npm run check-replay:pages
-npm run check-clips:pages
 ```
 
 Node 22.23.4 or newer (see `.nvmrc`). `check-figures`, `check-replay` and `check-clips` need a Chromium: `npx playwright-core install chromium`,
