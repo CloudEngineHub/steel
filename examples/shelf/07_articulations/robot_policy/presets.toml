@@ -32,15 +32,17 @@ status = "untested"
 
 [steel]
 status = "works"
-# 2 iterations, immediate response, point friction, joint limits on. enable_joint_limits: without them the standing
-# G1 policy drifts 0.4-0.5 m in 2.5 s; with them it holds within 0.03 m as under MuJoCo (0.09 m).
+# 4 iterations, immediate response, point friction, joint limits on. iterations: with 2, the G1 policy at zero command
+# holds for 14 s, then walks off (5.5 m in 60 s, the same every run); with 4 or 8 it holds within 0.04 m for 60 s
+# (MuJoCo 0.22 m), for 10% more time (1.83 vs 1.66 ms per policy step, RTX PRO 6000). enable_joint_limits: without
+# them the standing G1 policy drifts 0.4-0.5 m in 2.5 s; with them it holds within 0.03 m as under MuJoCo (0.09 m).
 # joint_limit_activation_gap 0.1 rad builds a limit row only within 0.1 rad of a limit instead of all 58 every
 # step (1.63 vs 2.24 ms). friction_anchor_beta = 0 (point friction instead of patch anchors) is 17% faster; peak
 # penetration 8.8 mm vs MuJoCo's 8.2 mm, mean 0.13 vs 0.23 mm. articulation_constraint_max: the immediate
 # response keeps contact and limit rows in this family; they peak at 34 per world (the default is 32).
 sim = { fps = 200, substeps = 1 }
-solver = { solve_mode = "matrix_free", iterations = 2, articulated_contact_response = "immediate", articulation_constraint_max = 128, enable_joint_limits = true, joint_limit_activation_gap = 0.1, friction_anchor_beta = 0.0 }
-checked = "2026-11-04, newton 7565a26b1, NVIDIA GeForce RTX 3090"
+solver = { solve_mode = "matrix_free", iterations = 4, articulated_contact_response = "immediate", articulation_constraint_max = 128, enable_joint_limits = true, joint_limit_activation_gap = 0.1, friction_anchor_beta = 0.0 }
+checked = "2026-11-19, newton f6fc82a8b, NVIDIA RTX PRO 6000 Blackwell Server Edition"
 
 [kamino]
 status = "untested"

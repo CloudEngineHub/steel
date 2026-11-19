@@ -543,9 +543,9 @@
    "preset": "steel",
    "speed": 1.0,
    "clip_seconds": 10.0,
-   "preview_start": 3.4,
+   "preview_start": 4.5,
    "preview_seconds": 5.0,
-   "poster": 5.0
+   "poster": 7.0
   },
   "robot_ur10": {
    "preset": "steel",
