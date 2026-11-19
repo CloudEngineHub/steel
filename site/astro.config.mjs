@@ -16,6 +16,8 @@ import { workflowsSidebar } from './src/lib/workflows-data.mjs';
 
 // Deploy under a subpath with STEEL_SITE_BASE=/steel/docs; absolute links in content get the prefix.
 const base = process.env.STEEL_SITE_BASE ?? '/';
+const site = process.env.STEEL_SITE_URL ?? 'https://steel.skild.ai';
+const socialImage = new URL(`${base.replace(/\/$/, '')}/social/steel-docs.png`, site).href;
 // The "Inside Steel" post is hosted separately; point the sidebar link at it.
 const insideSteelUrl = process.env.INSIDE_STEEL_URL ?? '/inside-steel/';
 
@@ -23,7 +25,7 @@ export default defineConfig({
 	vite: { server: { fs: { allow: ['..'] } } },
 	// Host names other than localhost that `npm run dev` / `npm run preview` answer, e.g. STEEL_ALLOWED_HOSTS=myhost.
 	server: { allowedHosts: (process.env.STEEL_ALLOWED_HOSTS ?? '').split(',').filter(Boolean) },
-	site: process.env.STEEL_SITE_URL ?? 'https://steel.skild.ai',
+	site,
 	base,
 	trailingSlash: 'always',
 	markdown: {
@@ -41,6 +43,14 @@ export default defineConfig({
 			components: { Footer: './src/components/Footer.astro' },
 			customCss: ['katex/dist/katex.min.css', './src/styles/steel.css'],
 			head: [
+				{ tag: 'meta', attrs: { property: 'og:image', content: socialImage } },
+				{ tag: 'meta', attrs: { property: 'og:image:type', content: 'image/png' } },
+				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1920' } },
+				{ tag: 'meta', attrs: { property: 'og:image:height', content: '1008' } },
+				{ tag: 'meta', attrs: { property: 'og:image:alt', content: 'Steel Docs with the Skild AI mark on a warm off-white background.' } },
+				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: socialImage } },
+				{ tag: 'meta', attrs: { name: 'twitter:image:alt', content: 'Steel Docs with the Skild AI mark on a warm off-white background.' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
 				{
