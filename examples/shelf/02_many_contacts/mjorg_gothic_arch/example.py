@@ -21,6 +21,7 @@ import numpy as np
 
 import newton
 import newton.examples
+from common.flat_shading import flat_shade_meshes
 from common.steel_scenes import SceneExample
 
 # How far the keystone may sink and any stone may move before the arch counts as fallen [m]; a few
@@ -41,6 +42,7 @@ class Example(SceneExample):
         builder = newton.ModelBuilder()
         self.preset.apply_model(builder)
         builder.add_mjcf(str(Path(__file__).with_name("scene.xml")))
+        flat_shade_meshes(builder)
         self.keystone = builder.body_label.index("Gothic arch/worldbody/keystone")
         self.start = np.array([list(builder.body_q[b])[:3] for b in range(builder.body_count)])
         self.frame = 0
