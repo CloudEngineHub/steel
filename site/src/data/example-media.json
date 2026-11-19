@@ -393,7 +393,7 @@
    "clip_seconds": 10.0,
    "preview_start": 0.0,
    "preview_seconds": 5.0,
-   "poster": 1.0
+   "poster": 2.5
   },
   "mjorg_house_of_cards": {
    "preset": "steel",
@@ -449,7 +449,7 @@
    "clip_seconds": 10.0,
    "preview_start": 0.0,
    "preview_seconds": 5.0,
-   "poster": 5.0
+   "poster": 2.5
   },
   "overlap": {
    "preset": "steel",
@@ -471,9 +471,9 @@
    "preset": "steel_vbd",
    "speed": 1.0,
    "clip_seconds": 10.0,
-   "preview_start": 4.0,
+   "preview_start": 3.3,
    "preview_seconds": 5.0,
-   "poster": 5.0
+   "poster": 5.8
   },
   "ragdoll": {
    "preset": "steel",

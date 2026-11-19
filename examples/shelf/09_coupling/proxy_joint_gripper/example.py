@@ -25,6 +25,7 @@ import newton
 import newton.examples
 from newton.solvers import SolverMuJoCo, SolverVBD
 from common import presets
+from common.flat_shading import FlatTriangles
 
 
 @wp.kernel
@@ -349,6 +350,10 @@ class Example:
     def render(self) -> None:
         self.viewer.begin_frame(self.sim_time)
         newton.examples.log_coupled_view(self, self.contacts)
+        if getattr(self, "_flat", None) is None:
+            # the soft grid's surface with hard edges; the viewer's smooth normals round the squeezed block
+            self._flat = FlatTriangles(self.viewer, self.model)
+        self._flat.log(self.state_0)
         self.viewer.end_frame()
 
     @staticmethod
