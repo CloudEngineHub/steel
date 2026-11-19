@@ -349,10 +349,11 @@ class Example:
 
     def render(self) -> None:
         self.viewer.begin_frame(self.sim_time)
-        newton.examples.log_coupled_view(self, self.contacts)
         if getattr(self, "_flat", None) is None:
-            # the soft grid's surface with hard edges; the viewer's smooth normals round the squeezed block
+            # the soft grid's surface with hard edges; the viewer's smooth normals round the squeezed block.
+            # Created before the first log_state so the smooth surface is never drawn.
             self._flat = FlatTriangles(self.viewer, self.model)
+        newton.examples.log_coupled_view(self, self.contacts)
         self._flat.log(self.state_0)
         self.viewer.end_frame()
 
