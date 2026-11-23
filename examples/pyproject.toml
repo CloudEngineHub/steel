@@ -1,6 +1,6 @@
 [project]
 name = "steel-shelf"
-version = "0.1.0"
+version = "0.2.0"
 description = "Curated Newton examples, one folder per physics feature, with a tested solver preset per solver."
 readme = "README.md"
 license = "Apache-2.0 AND BSD-3-Clause"
