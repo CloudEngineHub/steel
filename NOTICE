@@ -12,7 +12,8 @@ applies to the project code and this documentation, not automatically to
 third-party assets or trademarks.
 
 Launch media:
-assets/launch.mp4 and assets/launch-poster.jpg were created by Skild AI.
+assets/launch.webp, assets/launch.mp4 and assets/launch-poster.jpg were created by
+Skild AI.
 Copyright 2026 Skild AI. Licensed under Apache-2.0.
 
 Example media:
@@ -25,7 +26,8 @@ examples/THIRD_PARTY.md.
 Trademarks:
 Skild, Skild AI and the Skild logo are trademarks of Skild AI and are not
 licensed under Apache-2.0. The logo files site/src/assets/skild-mark-*.svg
-and site/public/favicon.svg are not covered by the Apache-2.0 grant.
+and site/public/favicon.svg, and the Skild AI mark in
+site/public/social/steel-docs.png, are not covered by the Apache-2.0 grant.
 
 The examples/ collection was migrated from the Steel Shelf project. Its
 component notices and asset inventory are retained in examples/NOTICE,
